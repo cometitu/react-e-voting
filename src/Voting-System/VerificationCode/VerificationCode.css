@@ -1,0 +1,26 @@
+
+
+.verification-code-box {
+  background-color: var(--secondary_blue);
+  padding: 2rem;
+  border-radius: 5px;
+  justify-content: center;
+  margin-top: 2rem;
+  align-content: center;
+}
+
+.generated-verification-code-container {
+  flex-direction: column;
+  margin-top: 3rem;
+}
+
+.pdf-download-wrapper{
+  display:flex;
+  align-items: center
+}
+
+.qr-generator-wrapper{
+   visibility: hidden; 
+   height:0px; 
+   width:0px;
+  }

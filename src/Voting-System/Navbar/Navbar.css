@@ -1,0 +1,10 @@
+.navbar-container{
+    width:100vw;
+    height:12vh;
+    position:fixed;
+    top:0;
+    background-color: var(--secondary_blue);
+    padding: 0.5rem 1.8rem;
+    z-index: 10;
+    overflow: hidden;
+}

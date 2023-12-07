@@ -1,0 +1,44 @@
+.text-margin-top {
+  margin-top: 1rem;
+}
+.title-margin-top {
+  margin-top: 2rem;
+}
+
+.check-box {
+  margin-top: 2rem;
+  font-size: 0.6rem;
+}
+
+.centered-text {
+  text-align: center;
+}
+
+/* icons */
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 700, "GRAD" 0, "opsz" 48;
+  font-size: 3.5rem;
+  line-height: 1;
+}
+
+.small-icon {
+  font-size: 1.5rem !important;
+}
+
+.medium-icon {
+  font-size: 1.7rem !important;
+  font-weight: 700;
+}
+
+.blue-icon {
+  font-size: 3.4rem;
+  color: var(--primary_blue) !important;
+}
+
+.margin-right-icon {
+  margin-right: 0.5rem;
+}
+
+body {
+  overflow-x: hidden;
+}

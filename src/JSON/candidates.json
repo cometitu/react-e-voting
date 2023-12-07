@@ -1,0 +1,57 @@
+  [
+    {
+        "id":2,
+        "candidate": "Alice T. Smith",
+        "party": "Party A"
+    },
+    {
+        "id":3,
+        "candidate":"Mark Jones",
+        "party": "Party B"
+
+    },
+    {
+        "id":4,
+        "candidate":"Martin Taylor",
+        "party": "Party C"
+    },
+    {
+        "id":5,
+        "candidate":"Ann K. Brown",
+        "party": "Party D"
+    },
+    {  
+        "id":6,
+        "candidate":"Mary Williams",
+        "party": "Party E"
+
+    },
+    {
+        "id":7,
+        "candidate":"Sarah Wilson",
+        "party": "Party F"
+    },
+    {
+        "id":8,
+        "candidate":"James R. Davies",
+        "party": "Party G"
+
+    },
+    {
+        "id":9,
+        "candidate":"Daniel Walker",
+        "party": "Party H"
+    },
+    {
+        "id":10,
+        "candidate":"Jacob S. Turner",
+        "party": "Party I"
+
+    },
+    {
+        "id":11,
+        "candidate":"Emma Miller",
+        "party": "Party J"
+
+    }
+]
