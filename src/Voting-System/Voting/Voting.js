@@ -49,7 +49,7 @@ export default function Voting() {
             </Grid>
           </RadioGroup>
 
-          <PopOver vote={vote}></PopOver>
+           <PopOver vote={vote}></PopOver>
           </Box> : <Text className="red-text">
               The voting phase is over and it is not possible to vote anymore.
             </Text>
