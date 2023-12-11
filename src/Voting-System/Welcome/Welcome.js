@@ -18,7 +18,7 @@ export default function Welcome() {
         <div className="inner-page-container-wide">
           <h1 className="blue-text">Welcome</h1>
 
-          <Text>Welcome to the General Election 2023!</Text>
+          <Text>Welcome to the Board Election 2023!</Text>
           <Text className="text-margin-top" marginBottom={"2rem"}>
             This election consists of three parts. First, you will get a unique
             verification code, then you will vote. Later on you can use your

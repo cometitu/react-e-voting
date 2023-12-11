@@ -14,9 +14,9 @@ import "./InfoPages.css";
 export default function Info3() {
   const voter = getCurrentUser();
 
-  function copyIdToClipBoard() {
+/*   function copyIdToClipBoard() {
     navigator.clipboard.writeText(voter.attributes.username);
-  }
+  } */
   return (
     <div className="container-info-pages">
       <div className="inner-box-info centered-info-page">
@@ -59,7 +59,7 @@ export default function Info3() {
           className="red-btn"
           onClick={() =>
             (window.location.href =
-              "https://www.survey-xact.dk/LinkCollector?key=K4L2ER6AUK1P&System=1.0")
+              "https://www.survey-xact.dk/LinkCollector?key=6DDYP6XFUN96&b_1=2")
           }
         >
           Go to survey

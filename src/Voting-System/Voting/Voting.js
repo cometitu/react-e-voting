@@ -41,7 +41,7 @@ export default function Voting() {
                       value={`${candidate.candidate} (${candidate.party})`}
                     >
                       <div>{candidate.candidate}</div>
-                      <div>{candidate.party}</div>
+                     {/*  <div>{candidate.party}</div> */}
                     </Radio>
                   </GridItem>
                 </Box>

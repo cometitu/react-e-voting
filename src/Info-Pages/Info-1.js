@@ -1,69 +1,29 @@
-import React, { useEffect } from "react";
-import "./InfoPages.css";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import {
-  Button,
-  Box,
-  Text,
-  Grid,
-  GridItem,
-  Checkbox,
-  Spinner,
-} from "@chakra-ui/react";
-import { Form, Formik } from "formik";
-import getCurrentUser, { addVoter, loginVoter } from "../API/Voter";
-/* import Instructions from "../assets/Instructions_e-voting.pdf"; */
-import Instructions from "../assets/New_Instructions_e-voting.pdf"
+import { Text, Button, GridItem, Grid } from "@chakra-ui/react";
+import "./InfoPages.css";
+import Instructions from "../assets/Instructions_e-voting.pdf";
 import { downloadFile } from "../utils";
+import getCurrentUser, { addVoter, loginVoter } from "../API/Voter";
 
 export default function Info1() {
-  const [checked, setChecked] = useState(false);
-  const [disabledButton, setDisabled] = useState(true);
-  const [downloaded, setDownloaded] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const voter = getCurrentUser();
   const navigate = useNavigate();
+  const voter = getCurrentUser();
 
-  const handleChangeCheckbox = () => {
-    if (checked) {
-      setChecked(false);
-      setDisabled(true);
-    } else if (!checked && !downloaded) {
-      setChecked(true);
-      setDisabled(true);
-    } else if (!checked && downloaded) {
-      setChecked(true);
-      setDisabled(false);
-    }
-  };
 
   const downloadInstructions = () => {
-    downloadFile(Instructions, "General-Election-2023.pdf");
-    setDownloaded(true);
-    if (checked) {
-      setDisabled(false);
-    }
+    downloadFile(Instructions, "Board-Election-2023.pdf");
   };
 
   const submitForm = () => {
-    setIsSubmitting(true);
-    document
-      .querySelector("#submit-pid")
-      .setAttribute("disabled", isSubmitting);
-    let rndInt = Math.floor(Math.random() * 901) + 100;
+      let rndInt = Math.floor(Math.random() * 901) + 100;
     if (voter === null) {
       rndInt = rndInt.toString();
       addVoter(rndInt).then(
         (resolveSignUp) => {
           navigate("/welcome");
-          console.log("signup");
-        },
-        (rejectSignUp) => {
-          setIsSubmitting(false);
-          document.querySelector("#submit-pid").removeAttribute("disabled");
-          document.querySelector("#submission-error").style.visibility =
-            "visible";
+          console.log("signup")
         }
       );
     } else {
@@ -71,101 +31,58 @@ export default function Info1() {
       loginVoter(rndInt).then(
         (resolveLogIn) => {
           navigate("/welcome");
-          console.log("login");
-        },
-        (rejectLogIn) => {
-          setIsSubmitting(false);
-          document.querySelector("#submit-pid").removeAttribute("disabled");
-          document.querySelector("#submission-error").style.visibility =
-            "visible";
+          console.log("login")
         }
       );
     }
   };
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+
 
   return (
     <div className="container-info-pages">
-      <Box className="inner-box-info padding-top-info-page">
-        <Box>
-          <div className="space-between">
-            <h1 className="h1-info-pages">Before you start</h1>
-          </div>
-          <Formik initialValues={{ pid: "" }} onSubmit={submitForm}>
-            {({ errors, touched }) => (
-              <Form>
-                <Grid className="info1-steps-grid">
-                  <GridItem className="info1-steps-numbers">
-                    <Text>1</Text>
-                  </GridItem>
-                  <GridItem className="info1-steps-griditem">
-                    <Text>
-                      All candidates are fictional and for the purpose of this
-                      study we ask you to vote for your preferred candidate.
-                      {/* <span className="bold-text red-text">Sarah Wilson.</span> */}
-                    </Text>
-                    <Checkbox
-                      className="check-box check-box-red"
-                      isChecked={checked}
-                      onChange={handleChangeCheckbox}
-                    >
-                      I understand and will vote for my preferred candidate.
-                    </Checkbox>
-                  </GridItem>
-                  <GridItem className="info1-steps-numbers">
-                    <Text>2</Text>
-                  </GridItem>
-                  <GridItem className="info1-steps-griditem">
-                    <Text className="bold-text">
-                      Please download the instruction letter which you need to
-                      follow to complete the General Election 2023.{" "}
-                    </Text>
-                    <Text className="text-margin-top">
-                      In a real election you would get these instructions as a
-                      physical or digital letter by the election authorities.
-                    </Text>
-                    <Text className="red-text text-margin-top">
-                      Make sure that you can access the letter throughout the
-                      study.
-                    </Text>
-                    <Button onClick={downloadInstructions} className="red-btn">
-                      <span className="material-symbols-outlined medium-icon margin-right-icon">
-                        download
-                      </span>
-                      Download
-                    </Button>
-                  </GridItem>
-                  <GridItem className="info1-steps-numbers" />
-
-                  <GridItem
-                    className="info1-steps-griditem"
-                    paddingTop={"1rem"}
-                  >
-                    <Text
-                      id="submission-error"
-                      className="error-text-db-submission"
-                    >
-                      Something went wrong, please try again later.{" "}
-                    </Text>
-                    <Button
-                      id="submit-pid"
-                      type="submit"
-                      className="red-btn"
-                      isDisabled={disabledButton}
-                      mt={"1rem"}
-                    >
-                      {isSubmitting && <Spinner size="sm" mr={"1rem"} />} Start
-                    </Button>
-                  </GridItem>
-                </Grid>
-              </Form>
-            )}
-          </Formik>
-        </Box>
-      </Box>
+      <div className="inner-box-info centered-info-page">
+        <h2 className="h2-info-pages">Study Instructions</h2>
+        <br></br>
+        <Text className="centered-info-page">
+          For the purpose of this study, you are a board member about to vote
+          online in the board election. Your task in this study is to cast your
+          vote for your preferred candidate for the Board Chairperson and Board
+          Secretary positions.
+        </Text>
+        <br />
+        <Text className="centered-info-page">
+          During the voting, you will be asked to authenticate using the
+          credentials shown to you in the voting interface. Note, in a
+          real-world elections the credentials will be issued to you separately
+          using secure communication channels and will not be displayed anywhere
+          in the system.
+        </Text>
+        <br />
+        <Text className="centered-info-page">
+          You can also download these instructions for a later reference by
+          clicking on the <strong><span style={{ color: '#7c2503', fontWeight: 'bold' }}>Download</span></strong>&nbsp;below. When you are ready to
+          start the study, please click <strong><span style={{ color: '#7c2503', fontWeight: 'bold' }}>Next</span></strong>&nbsp;.
+        </Text>
+        <div style={{ display: 'flex' }}>
+          <Button
+            className="red-btn"
+            mt="1rem"
+            onClick={() => downloadInstructions()}
+            style={{ marginRight: '15px' }} // Adjust the margin here
+          >
+            Download
+          </Button>
+          <Button
+          onClick={()=> submitForm()}
+            className="red-btn"
+            mt="1rem"
+            style={{ marginLeft: '1px' }} // Adjust the margin here
+          >
+            Next
+          </Button>
+        </div>
+      </div>
     </div>
   );
 }
