@@ -96,6 +96,15 @@ function PopOver({ vote }) {
                 QSk47SATw3
               </span>
             </Text>
+            <Text color="#b23606" className="text-margin-top">
+             <Text>The credentials are only shown to you because it is a study. </Text> 
+             <Text>In a real-world system, they will be delivered to you
+              </Text>
+              <Text>
+             via a secure communication channel.</Text>
+            </Text>
+
+
          {/*    <Text className="text-margin-top">
             Your Pseudonym is: Anonymous Voter-155
             </Text> */}
