@@ -44,7 +44,7 @@ export default function Reporting() {
                   <FormControl isInvalid={!!errors.text && touched.text}>
                     <FormLabel marginBottom={"1rem"}>
                       Below you can report any kind of problems, you have
-                      experienced in General Election 2023.
+                      experienced in Board Election 2023.
                     </FormLabel>
                     <Field
                       as={Textarea}

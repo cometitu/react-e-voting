@@ -14,9 +14,9 @@ import "./InfoPages.css";
 export default function Info3() {
   const voter = getCurrentUser();
 
-  function copyIdToClipBoard() {
+/*   function copyIdToClipBoard() {
     navigator.clipboard.writeText(voter.attributes.username);
-  }
+  } */
   return (
     <div className="container-info-pages">
       <div className="inner-box-info centered-info-page">
@@ -29,7 +29,7 @@ export default function Info3() {
           To complete the study, please fill out a survey about your experience
           of the online voting system.
         </Text>
-
+{/* 
         <Text className="medium-body-text-info">
           We need to be able to connect your results from the voting system with
           the survey. Therefore, you have to copy the number just below and
@@ -51,7 +51,7 @@ export default function Info3() {
               icon={<CopyIcon />}
             />
           </InputRightElement>
-        </InputGroup>
+        </InputGroup> */}
 
         <Button
           marginTop={"2rem"}
@@ -59,7 +59,7 @@ export default function Info3() {
           className="red-btn"
           onClick={() =>
             (window.location.href =
-              "https://www.survey-xact.dk/LinkCollector?key=K4L2ER6AUK1P&System=1.0")
+              "https://www.survey-xact.dk/LinkCollector?key=6DDYP6XFUN96&b_1=2")
           }
         >
           Go to survey

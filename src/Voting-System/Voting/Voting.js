@@ -41,7 +41,7 @@ export default function Voting() {
                       value={`${candidate.candidate} (${candidate.party})`}
                     >
                       <div>{candidate.candidate}</div>
-                      <div>{candidate.party}</div>
+                     {/*  <div>{candidate.party}</div> */}
                     </Radio>
                   </GridItem>
                 </Box>
@@ -49,7 +49,7 @@ export default function Voting() {
             </Grid>
           </RadioGroup>
 
-          <PopOver vote={vote}></PopOver>
+           <PopOver vote={vote}></PopOver>
           </Box> : <Text className="red-text">
               The voting phase is over and it is not possible to vote anymore.
             </Text>

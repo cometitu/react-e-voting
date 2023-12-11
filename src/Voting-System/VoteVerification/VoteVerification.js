@@ -22,7 +22,9 @@ import getCurrentUser from "../../API/Voter";
 import Navbar from "../Navbar/Navbar";
 import "../../Info-Pages/InfoPages.css";
 import { useNavigate } from "react-router-dom";
-import Result from "../../assets/Diagram-Result.png";
+/* import Result from "../../assets/Diagram-Result.png"; */
+import Result from "../../assets/Diagram-Result.png"
+import NewResult from "../../assets/New_results.png"
 
 export default function VoteVerification() {
   const [input, setInput] = useState("");
@@ -39,13 +41,17 @@ export default function VoteVerification() {
   }
 
   results = Array.from(results);
+  
   results.sort((a, b) => {
-    if (a.code.toUpperCase() < b.code.toUpperCase()) {
+    const codeA = a.code ? a.code.toUpperCase() : ''; // Check if a.code exists
+    const codeB = b.code ? b.code.toUpperCase() : ''; // Check if b.code exists
+    if (codeA < codeB) {
       return -1;
     } else {
       return 1;
     }
   });
+  
 
   const makeAccordion = () => {
     let firstLetter = results[0].code[0].toUpperCase();
@@ -70,31 +76,45 @@ export default function VoteVerification() {
     setInput(e.target.value);
   };
 
-  const search = () => {
-    if (input.length === 0) {
-      document.querySelector("#error-text").style.display = "none";
-    }
-    const table = document.querySelector("#result-table");
-    const children = table.childNodes; // get all children
-    let counter = 0; // iterate over all child nodes
-
-    children.forEach((el) => {
-      if (!el.id.startsWith(input)) {
-        el.style.display = "none";
-      } else {
-        el.style.display = "grid";
-        counter++;
+   const search = () => {
+    const inputValue = input.trim(); // Trim input value to remove whitespace
+    
+    if (inputValue.length === 0) {
+      const table = document.querySelector("#result-table");
+  
+      if (table) {
+        const children = table.childNodes;
+  
+        children.forEach((el) => {
+          el.style.display = "grid"; // Show all rows when input is empty
+        });
       }
-    });
-
-    let message;
-    document.querySelector("#error-text").style.display = "none";
-
-    if (counter === 0) {
-      message = document.querySelector("#error-text");
-      message.style.display = "block";
+  
+      document.querySelector("#error-text").style.display = "none";
+      return; // Exit function when input is empty
+    }
+  
+    const table = document.querySelector("#result-table");
+  
+    if (table) {
+      const children = table.childNodes;
+      let counter = 0; // Initialize counter for found items
+  
+      children.forEach((el) => {
+        if (el.id.toLowerCase().includes(inputValue.toLowerCase())) {
+          el.style.display = "grid"; // Show matching rows
+          counter++;
+        } else {
+          el.style.display = "none"; // Hide non-matching rows
+        }
+      });
+  
+      // Show/hide error message based on search results
+      const errorMessage = document.querySelector("#error-text");
+      errorMessage.style.display = counter === 0 ? "block" : "none";
     }
   };
+  
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -103,26 +123,26 @@ export default function VoteVerification() {
   return (
     <div>
       <Navbar />
-
-      <Grid className="container-outer-page">
-        <GridItem className="video-and-results">
-          <h1 className="blue-text headline-mobile">Vote verification</h1>
+     <Grid className="container-outer-page"> 
+         <GridItem className="video-and-results">
+        <h1 className="blue-text headline-mobile">Vote verification</h1>
 
           {voter !== null && (
             <Box display={voter.attributes.Vote === "" ? "none" : "box"}>
               <h3 className="headline-results">
-                Result of General Election 2023
+                Result of Board Election 2023
               </h3>
-              <img
+               <img
                 className="result-diagram"
-                src={Result}
+                src={NewResult}
                 width={"80%"}
                 alt="result"
-              ></img>
+              ></img> 
             </Box>
           )}
 
-        </GridItem>
+        </GridItem> 
+        
         <Grid className="verification-content">
           <h1 className="blue-text headline-desktop">Vote verification</h1>
           {voter !== null ? (
@@ -219,7 +239,7 @@ export default function VoteVerification() {
                                 <GridItem className="verification-code-bb">
                                   {result.code}
                                 </GridItem>
-                                <GridItem>{result.vote}</GridItem>
+                                <GridItem>{result.vote.split(' (')[0]}</GridItem>
                               </Grid>
                             ))}
                           </AccordionPanel>
@@ -244,7 +264,8 @@ export default function VoteVerification() {
             </Text>
           )}
         </Grid>
-      </Grid>
-    </div>
+       </Grid> 
+     </div>
+
   );
 }

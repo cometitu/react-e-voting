@@ -3,7 +3,7 @@ import "./InfoPages.css";
 import { useState } from "react";
 import {
   Button,
-  Checkbox,
+  List,
   Text,
   Spinner,
   Box,
@@ -15,12 +15,12 @@ import { getNumberOfVoters } from "../API/Voter";
 import { useNavigate } from "react-router-dom";
 
 export default function Welcome() {
-  const [checked, setChecked] = useState(false);
+/*   const [checked, setChecked] = useState(false);
   const [disabledButton, setDisabled] = useState(true);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const navigate = useNavigate();
+  const navigate = useNavigate(); */
 
-  function handleChangeCheckbox() {
+/*   function handleChangeCheckbox() {
     if (checked) {
       setChecked(false);
       setDisabled(true);
@@ -28,252 +28,129 @@ export default function Welcome() {
       setChecked(true);
       setDisabled(false);
     }
-  }
-
-  const assignARandomRepository = () => {
-    setIsSubmitting(true);
-    document
-      .querySelector("#submit-button")
-      .setAttribute("disabled", isSubmitting);
-
-    const rndInt = Math.floor(Math.random() * 4) + 1;
-    let count;
-
-    getNumberOfVoters().then((res) => {
-      count = res;
-      if (rndInt === 1) {
-        //only redirect to first system if DB has less than 30 entries to get an equal amount of data for each system
-        /*  if (count < 30) { */
-        window.location.href = "http://app6.res50.itu.dk/info-1";
-        /*  } else {
-          window.location.href = "https://e-voting-study-2.netlify.app/info-1";
-         }  */
-      }
-      if (rndInt === 2) {
-        window.location.href = "http://app6.res50.itu.dk/info-1";
-      }
-      if (rndInt === 3) {
-        window.location.href = "http://app6.res50.itu.dk/info-1";
-      }
-      if (rndInt === 4) {
-        window.location.href = "http://app6.res50.itu.dk/info-1";
-      }
-    });
-  };
+  } */
 
   return (
     <div className="container-info-pages">
       <Box className="inner-box-info padding-top-info-page" maxW={"35rem"}>
-        <h1 className="h1-info-pages">Welcome to our study!</h1>
         <Text>
-          The purpose of this study is to investigate user experience and trust
-          in an online voting system intended for general elections.
+          Dear participant, <br /> <br />
+          Thank you for taking part in our study. Your opinion is very important
+          to us, and by participating you will make a valuable contribution to
+          our research.
         </Text>
-        <h3 className="title-margin-top">Description of research</h3>
+        <h3 className="title-margin-top">What this project is about</h3>
         <Text>
-          Before entering the voting system, you will be asked to download an
-          instruction paper for the voting system. After entering the system,
-          you are asked to test the voting system by following the instruction
-          paper. This will be followed by a questionnaire, which you will get
-          redirected to from the last page of the voting system. Once you have
-          completed the questionnaire, you will be redirected to Prolific. The
-          total duration of the study is approximately 30 minutes. We highly
-          recommend using a desktop device for the study.
+          In the study, you will be asked to vote using an Internet voting
+          system, then view the final results, and then provide us with feedback
+          on the system. The main purpose of this study is to investigate and
+          measure users attitudes towards an internet voting system.
+          <br />
         </Text>
-        <h3 className="title-margin-top">Withdrawal</h3>
+        This survey will take approximately **15 minutes** to complete. You will
+        be reimbursed **£2.25** for your participation. 
         <Text>
-          You can withdraw your consent about being part of the study at any
-          time before the completion of the study, meaning before you submit the
-          survey. In this case your collected data will be deleted by the
-          researchers. For more information on how to withdraw from a study
-          before completion in Prolific, see this link:{" "}
-          <Link
-            className="info-link"
-            href="https://participant-help.prolific.co/hc/en-gb/articles/360022342094-How-do-I-withdraw-my-participation-in-a-study"
-            target={"_blank"}
+          <br />
+          You can drop out from the survey participation at any time and your
+          collected data will be deleted by the researchers. However, in that
+          case you will not get the compensation for your participation from the
+          Prolific platform. See this&nbsp;
+          <a
+            href="https://participant-help.prolific.co/hc/en-gb/articles/360022342094-How-do-I-withdraw-my-participation-in-a-study-"
+            target="_blank"
+            style={{ color: "blue", textDecoration: "underline" }}
           >
-            https://participant-help.prolific.co/hc/
-            en-gb/articles/360022342094-How-do-I-withdraw-my-participation-in-a-study
-          </Link>
-          . Please note that we cannot delete your data after you have completed
-          the study, since the data we collect is anonymised and we therefore
-          have no chance to identify you (unless you choose to disclose
-          identifying information about yourself when using the voting system or
-          answering the questionnaire, in which case your data will be
-          anonymised as described below).
+            link
+          </a>
+          &nbsp; for more information on withdrawing from a study before it is
+          completed in Prolific.
         </Text>
-        <h3 className="title-margin-top">Compensation</h3>
+        <h3 className="title-margin-top">What I am agreeing to</h3>
         <Text>
-          Each participant will receive 4.50 £ at the conclusion of the study
-          through Prolific.
+          I hereby authorize the researchers mentioned on the page to make use
+          of the data I provide for their research project for the purpose
+          stated above. I also authorize that my anonymized data can be used and
+          analyzed by researchers. I have understood the nature and general
+          purpose of the research procedure.
         </Text>
         <h3 className="title-margin-top">How we handle and delete the data</h3>
         <Text>
-          If a participant discloses any personal information about themselves
-          or other people in the voting system or when answering the
-          questionnaire, the researchers will remove this from the dataset and
-          replace it with a placeholder.{" "}
-          {/* The non-anonymised data set will be
-          deleted after the study has been completed (latest 31st of December
-          2023). */}
+          If a participant divulges any personal information about themselves or
+          other persons while voting or filling out the questionnaire, the
+          researchers will remove it from the dataset and replace it with a
+          placeholder.
         </Text>
         <h3 className="title-margin-top">What data we collect</h3>
-        <Text>
-          The participants will be asked to share the following personal data:
-        </Text>
-
+        <Text>We will collect information about you, such as:</Text>
         <UnorderedList className="text-margin-top">
-          <ListItem>Gender</ListItem>
-          <ListItem>Age</ListItem>
-          <ListItem>Nationality</ListItem>
-          <ListItem>Level of education</ListItem>
+          <ListItem>your age,</ListItem>
+          <ListItem>gender,</ListItem>
+          <ListItem>country of residence,</ListItem>
+          <ListItem>educational level and</ListItem>
+          <ListItem>your computer's IP address</ListItem>
         </UnorderedList>
-        <Text className="text-margin-top">
-          We further collect the answers that the participants give to the
-          questions in the questionnaire, as well as data related to voting and
-          vote verification that the participants are asked to provide within
-          the voting system. Please note that all candidates on the digital
-          voting paper are fictional and the participants are asked to vote for
-          a specific candidate before they enter the voting system. Therefore,
-          we do not collect any sensitive personal data on political interests.
-        </Text>
         <h3 className="title-margin-top">How we use the data</h3>
         <Text>
-          The data will be used to derive statistical measures of user
-          experience and trust in the presented e-voting system. The data might
-          be referenced, but not printed in full, in the research report which
-          will be published internally at ITU as a Master Thesis Report (meaning
-          that researchers and future students at ITU might have access to the
-          report). They might also be used in aggregated form in academic
-          publishing, meaning that no individual answers will be mentioned, but
-          only overall results will appear.
+          These data, apart from your computer's IP address, will be used to
+          derive statistical measures of users' attitudes towards internet
+          voting systems. The data might be referenced or quoted, but not
+          printed in full unless it is completely anonymized, in the published
+          research reports and other academic publications. Your computer IP
+          address is stored seperately from your personal data.
         </Text>
         <h3 className="title-margin-top">Who has access to the data?</h3>
         <Text>
           The researchers have access to the original data until it has been
-          edited to replace given personal information with placeholders to
-          anonymise it. The anonymised data will be made available to the
-          supervising researchers and the external censor assessing the project.
+          edited to replace given personal information with placeholders as to
+          anonymize it.
         </Text>
         <h3 className="title-margin-top">Third Parties</h3>
-        <Text>
-          We use the following third party services in connection with this
-          study:
-        </Text>
         <UnorderedList>
           <ListItem className="text-margin-top">
-            <span className="bold-text">SurveyXact:</span> We use SurveyXact to
-            carry out the survey. Personal data (gender, age, nationality, level
-            of education) will be collected through the questions and stored on
-            the SurveyXact platform. The third parties mentioned below will not
-            have access to this data. Please refer to SurveyXact’s privacy
-            policy for more information:{" "}
-            <Link
-              className="info-link"
-              href="https://www.surveyxact.com/product/data-security/"
-              target={"_blank"}
+            SurveyXact: SurveyXact, a third-party service, is used to conduct
+            the survey. Personal information (gender, age, country of residence,
+            and level of education) will be collected through the questions and
+            stored on the SurveyXact platform. For more information, please see
+            SurveyXact's privacy statement &nbsp;
+            <a
+              href="https://rambollxact.com/cookie-and-privacy-policy"
+              target="_blank"
+              style={{ color: "blue", textDecoration: "underline" }}
             >
-              https://www.surveyxact.com/product/data-security/
-            </Link>
+              link
+            </a>.
           </ListItem>
-          {/* <ListItem className="text-margin-top">
-            <span className="bold-text">Netlify:</span> We use Netlify to host
-            the voting system. Netlify might collect your IP address and other
-            personal data, however, we will not have access to this data and
-            netlify is not sharing any IP addresses or other personal data.
-            Please refer to netlify’s privacy policy for more information:{" "}
-            <Link
-              className="info-link"
-              href="https://www.netlify.com/privacy/"
-              target={"_blank"}
-            >
-              https://www.netlify.com/privacy/
-            </Link>
-          </ListItem> */}
           <ListItem className="text-margin-top">
-            <span className="bold-text">Back4App:</span> We use Back4App to
-            store data connected to your testing of the voting system. This data
-            is not considered personal (unless you choose to disclose
-            identifying information about yourself when using the voting
-            system). Back4app might collect personal data which we will not have
-            access to. Please refer to Back4App’s privacy policy for more
-            information:{" "}
-            <Link
-              className="info-link"
-              href="https://www.back4app.com/privacy.pdf"
-              target={"_blank"}
-            >
-              https://www.back4app.com/privacy.pdf
-            </Link>
+            Cookies: We also use cookies to track your progress through the
+            study, and these cookies are deleted at the end of the study.
           </ListItem>
-
-          <ListItem className="text-margin-top">
-            <span className="bold-text">Google Fonts:</span> We use the font
-            library Google Fonts to display the fonts in the voting system.
-            Calling up script libraries or font libraries automatically triggers
-            a connection to the operator of the library. It is possible that the
-            operators of such libraries collect data. You can find the privacy
-            policy of the library operator Google here:{" "}
-            <Link
-              className="info-link"
-              href="https://www.google.com/policies/privacy/"
-              target={"_blank"}
-            >
-              https://www.google.com/policies/privacy/
-            </Link>
-          </ListItem>
-        </UnorderedList>
-        {/* <h3 className="title-margin-top">Researchers</h3>
+          </UnorderedList>
+         <h3 className="title-margin-top">Researchers</h3>
+         <Text>For more information about the survey, feel free to contact us.</Text>
+         <br />
         <UnorderedList>
           <ListItem>
-            Christina Frederikke Nissen (
-            <Link
-              className="info-link"
-              href="mailto:chfn@itu.dk"
-              target={"_blank"}
-            >
-              chfn@itu.dk
-            </Link>
-            )
+          Samuel Agbesi, IT University of Copenhagen (sagb@itu.dk)
           </ListItem>
           <ListItem>
-            Lara Elisabeth Fredrich (
-            <Link
-              className="info-link"
-              href="mailto:lfre@itu.dk"
-              target={"_blank"}
-            >
-              lfre@itu.dk
-            </Link>
-            )
+          Oksana Kulyk, IT University of Copenhagen (okku@itu.dk)
           </ListItem>
+          <ListItem>Jurlind Budurush, IT University of Copenhagen (jurb@itu.dk)</ListItem>
+          <ListItem>Asmita Dalela (asmita.dalela@gmail.com)</ListItem>
         </UnorderedList>
-        <Text className="text-margin-top">
-          Student researchers at the IT University of Copenhagen
-        </Text> */}
-        <h3 className="title-margin-top">Questions</h3>
-        <Text>
-          For any questions concerning our processing of your personal data,
-          please contact one of the researchers involved in the project (see
-          contact details above).
-        </Text>
-        <Checkbox
-          className="check-box check-box-red"
-          id="checkBox-vote-info"
-          isChecked={checked}
-          onChange={handleChangeCheckbox}
-        >
-          I consent to serve as a subject in the research investigation
-          described above. I confirm that I am fluent in English.
-        </Checkbox>
+        <br />
+         <br />
+        <Text>By pressing the <strong>"Next"</strong> button, you freely and knowingly accept that you have read and understood the provided information.</Text>
         <Button
-          onClick={() => assignARandomRepository()}
+          onClick={() =>
+            (window.location.href = "http://app6.res50.itu.dk/info-1")
+          }
           className="red-btn"
-          disabled={disabledButton}
+       /*    disabled={disabledButton} */
           id="submit-button"
         >
-          {isSubmitting && <Spinner size="sm" mr={"1rem"} />}
-          Start
+         {/*  {isSubmitting && <Spinner size="sm" mr={"1rem"} />} */}
+          Next
         </Button>
       </Box>
     </div>
