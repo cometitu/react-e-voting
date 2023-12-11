@@ -30,6 +30,9 @@ export default function VerificationCode() {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const voter = getCurrentUser();
+  function copyIdToClipBoard() {
+    navigator.clipboard.writeText(voter.attributes.VerificationCode);
+  }
 
   function validateCode(value) {
     let error = "";
@@ -113,8 +116,7 @@ export default function VerificationCode() {
           <h1 className="blue-text">Verification Code</h1>
           <Text className="text-margin-top">
             To get your unique verficiation code, you need to enter a code of
-            your choice in the input field below. 
-       
+            your choice in the input field below.
           </Text>
 
           <Box className="info-box">
@@ -182,40 +184,34 @@ export default function VerificationCode() {
             display={voter.attributes.VerificationCode !== "" ? "flex" : "none"}
           >
             <Text>
-              Below you find your unique verification code. Please download the
-              code or store it somewhere, where you can find it again. Do not
-              share your code with others!
+              Below you find your unique verification code. Please store the code in a place, where you can find it again. 
+              Do not share your code with others!
             </Text>
-            <Text className="text-margin-top">
+            {/*    <Text className="text-margin-top">
               In the downloaded file, you will also find your verification code
               as a QR code.
-            </Text>
+            </Text> */}
 
             <Text className="text-margin-top" fontWeight="600">
               NB! You need to keep this code until the end of the election!
             </Text>
 
             <Grid className="verification-code-box">
-              <h3>
-                {voter.attributes.VerificationCode !== ""
-                  ? voter.attributes.VerificationCode
-                  : verificationCode}
-              </h3>
-
-              <Button className="blue-btn">
-                <Text display={"flex"}>
-                  <span className="material-symbols-outlined medium-icon margin-icon">
-                    download
+              <div className="container-verification-code">
+                <h3 className="verification-code-h3">
+                  {voter.attributes.VerificationCode !== ""
+                    ? voter.attributes.VerificationCode
+                    : verificationCode}
+                </h3>
+                <button class="copy-button" onClick={() => copyIdToClipBoard()}>
+                  <span class="material-symbols-outlined copy-icon">
+                    content_copy
                   </span>
-                </Text>
-                {
-                  <PDFgenerator
-                    voterId={voter.attributes.username}
-                    code={voter.attributes.VerificationCode}
-                  />
-                }
-              </Button>
+                </button>
+              </div>
             </Grid>
+
+
             <Checkbox
               className="check-box"
               id="checkBox"
@@ -223,7 +219,7 @@ export default function VerificationCode() {
               onChange={handleChange}
               isInvalid={invalid}
             >
-              I have downloaded or saved my verification code.
+              I have saved my verification code.
             </Checkbox>
             <Button
               onClick={handleSubmitVerificationCode}

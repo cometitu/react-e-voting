@@ -29,7 +29,7 @@ export default function Info3() {
           To complete the study, please fill out a survey about your experience
           of the online voting system.
         </Text>
-
+{/* 
         <Text className="medium-body-text-info">
           We need to be able to connect your results from the voting system with
           the survey. Therefore, you have to copy the number just below and
@@ -51,7 +51,7 @@ export default function Info3() {
               icon={<CopyIcon />}
             />
           </InputRightElement>
-        </InputGroup>
+        </InputGroup> */}
 
         <Button
           marginTop={"2rem"}

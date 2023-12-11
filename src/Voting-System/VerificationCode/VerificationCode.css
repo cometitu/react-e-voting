@@ -24,3 +24,33 @@
    height:0px; 
    width:0px;
   }
+
+.copy-button{
+  border-radius: 6px;
+  background-color: var(--primary_blue) !important;
+  color: var(--secondary_blue) !important;
+  display: flex; /* Use Flexbox */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  width: 35px; /* Increase button width */
+  height: 35px; /* Increase button height */
+}
+
+.copy-button:hover{
+  background-color: var(--secondary_darkblue) !important;
+}
+
+.copy-button .copy-icon {
+  font-size: 20px; /* Change the size of the icon as needed */
+  /* Additional styles for the icon */
+}
+
+.verification-code-h3{
+  margin: 0;
+  padding-right: 7px; 
+}
+
+.container-verification-code {
+  display: flex;
+  align-items: center;
+}
