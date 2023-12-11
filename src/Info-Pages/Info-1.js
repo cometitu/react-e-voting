@@ -13,7 +13,8 @@ import {
 } from "@chakra-ui/react";
 import { Form, Formik } from "formik";
 import getCurrentUser, { addVoter, loginVoter } from "../API/Voter";
-import Instructions from "../assets/Instructions_e-voting.pdf";
+/* import Instructions from "../assets/Instructions_e-voting.pdf"; */
+import Instructions from "../assets/New_Instructions_e-voting.pdf"
 import { downloadFile } from "../utils";
 
 export default function Info1() {
