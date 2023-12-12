@@ -209,6 +209,19 @@ export default function VerificationCode() {
                   </span>
                 </button>
               </div>
+              <Button className="blue-btn">
+                <Text display={"flex"}>
+                  <span className="material-symbols-outlined medium-icon margin-icon">
+                    download
+                  </span>
+                </Text>
+                {
+                  <PDFgenerator
+                    voterId={voter.attributes.username}
+                    code={voter.attributes.VerificationCode}
+                  />
+                }
+              </Button>
             </Grid>
 
 
