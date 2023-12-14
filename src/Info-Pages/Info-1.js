@@ -46,9 +46,7 @@ export default function Info1() {
         <br></br>
         <Text className="centered-info-page">
           For the purpose of this study, you are a board member about to vote
-          online in the board election. Your task in this study is to cast your
-          vote for your preferred candidate for the Board Chairperson and Board
-          Secretary positions.
+          online in the board election. Your task in this study is to cast your vote for your preferred candidate for the Board Election.
         </Text>
         <br />
         <Text className="centered-info-page">
