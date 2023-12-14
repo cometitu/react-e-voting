@@ -11,6 +11,7 @@ import {
   AccordionPanel,
   AccordionIcon,
   AccordionItem,
+  Link
 } from "@chakra-ui/react";
 import { React, useEffect } from "react";
 import Results from "../../JSON/results.json";
@@ -140,6 +141,7 @@ export default function VoteVerification() {
               ></img> 
             </Box>
           )}
+         
 
         </GridItem> 
         
@@ -263,7 +265,20 @@ export default function VoteVerification() {
               <br /> Please try again later.
             </Text>
           )}
+
+<Grid className="info-box"> 
+          <Text >You can&nbsp;
+          <Link
+              className="help-link"
+              href="mailto:sagb@itu.dk"
+              target={"_blank"}
+            >
+              email for help or report for any issues
+            </Link>
+          </Text>
+           </Grid> 
         </Grid>
+        
        </Grid> 
      </div>
 

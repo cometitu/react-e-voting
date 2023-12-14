@@ -13,6 +13,7 @@ import {
   Flex,
   Grid,
   Spinner,
+  Link
 } from "@chakra-ui/react";
 import { Field, Form, Formik } from "formik";
 import "./VerificationCode.css";
@@ -242,6 +243,18 @@ export default function VerificationCode() {
               Vote now
             </Button>
           </Flex>
+
+          <Grid className="info-box"> 
+          <Text >You can&nbsp;
+          <Link
+              className="help-link"
+              href="mailto:sagb@itu.dk"
+              target={"_blank"}
+            >
+              email for help or report for any issues
+            </Link>
+          </Text>
+           </Grid> 
         </div>
       </div>
     </div>

@@ -1,4 +1,4 @@
-import { Button, Text, Image } from "@chakra-ui/react";
+import { Button, Text, Image, Grid, Link } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
 import VotingOverview from "../../assets/Voting-Overview.png";
@@ -39,6 +39,18 @@ export default function Welcome() {
           >
             Next
           </Button>
+
+          <Grid className="info-box"> 
+          <Text >You can&nbsp;
+          <Link
+              className="help-link"
+              href="mailto:sagb@itu.dk"
+              target={"_blank"}
+            >
+              email for help or report for any issues
+            </Link>
+          </Text>
+           </Grid> 
         </div>
       </div>
     </div>

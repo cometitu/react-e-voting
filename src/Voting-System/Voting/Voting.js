@@ -1,5 +1,5 @@
 import "./Voting.css";
-import { RadioGroup, Radio, Box, GridItem, Grid, Text } from "@chakra-ui/react";
+import { RadioGroup, Radio, Box, GridItem, Grid, Text, Link } from "@chakra-ui/react";
 import Candidates from "../../JSON/candidates.json";
 import PopOver from "./PopOver";
 import { useState, useEffect } from "react";
@@ -48,12 +48,26 @@ export default function Voting() {
               ))}
             </Grid>
           </RadioGroup>
+          <Grid className="info-box"> 
+          <Text >You can&nbsp;
+          <Link
+              className="help-link"
+              href="mailto:sagb@itu.dk"
+              target={"_blank"}
+            >
+              email for help or report for any issues
+            </Link>
+          </Text>
+           </Grid> 
 
            <PopOver vote={vote}></PopOver>
           </Box> : <Text className="red-text">
               The voting phase is over and it is not possible to vote anymore.
             </Text>
+
+            
 }
+
         </div>
       </div>
     </div>

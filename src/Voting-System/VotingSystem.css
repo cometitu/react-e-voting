@@ -102,3 +102,11 @@ h3 {
 .input-field {
   border-color: var(--light_grey) !important;
 }
+
+/* Link */
+.help-link{
+  color: blue!important;
+  text-decoration: underline !important;
+}
+
+

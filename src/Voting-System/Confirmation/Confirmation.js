@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { Button, Text } from "@chakra-ui/react";
+import { Button, Text, Link, Grid } from "@chakra-ui/react";
 import Navbar from "../Navbar/Navbar";
 
 export default function Confirmation() {
@@ -23,6 +23,17 @@ export default function Confirmation() {
           <Button className="blue-btn" onClick={() => navigate("/info-2")}>
             Next
           </Button>
+          <Grid className="info-box"> 
+          <Text >You can&nbsp;
+          <Link
+              className="help-link"
+              href="mailto:sagb@itu.dk"
+              target={"_blank"}
+            >
+              email for help or report for any issues
+            </Link>
+          </Text>
+           </Grid> 
         </div>
       </div>
     </div>
