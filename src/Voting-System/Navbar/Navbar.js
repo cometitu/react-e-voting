@@ -10,7 +10,7 @@ export default function Navbar() {
     <Box className="navbar-container">
       <Flex height={"75%"}>
         <img src={LogoHelios} alt="logo" />
-        <Text marginTop="20px" >Secure E2E Voting</Text>
+        <Text marginTop="20px" color="#0e2842" fontWeight="bold" >Secure E2E Voting</Text>
       </Flex>
     </Box>
   );
