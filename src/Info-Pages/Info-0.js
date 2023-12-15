@@ -39,7 +39,7 @@ export default function Welcome() {
       }
       else{
         window.location.href =
-        "https://app1.res50.itu.dk/info-1";
+        "https://app1.res50.itu.dk/instruction";
       }
 };
 
