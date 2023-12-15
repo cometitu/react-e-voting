@@ -35,11 +35,11 @@ export default function Welcome() {
     const participantsIndex = Math.floor(Math.random() * totalParticipants);
       if (participantsIndex < totalParticipants / 2) {
         window.location.href =
-        "https://app6.res50.itu.dk/";
+        "https://app6.res50.itu.dk/info-1";
       }
       else{
         window.location.href =
-        "https://app1.res50.itu.dk/";
+        "https://app1.res50.itu.dk/info-1";
       }
 };
 
