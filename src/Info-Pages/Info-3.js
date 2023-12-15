@@ -22,7 +22,7 @@ export default function Info3() {
       <div className="inner-box-info centered-info-page">
         <h2 className="h2-info-pages">Please tell us about your experience</h2>
         <Text className="medium-body-text-info">
-          Congratulations! You have finished the second part of the study.
+          Congratulations! You have finished the voting system.
         </Text>
 
         <Text className="medium-body-text-info">

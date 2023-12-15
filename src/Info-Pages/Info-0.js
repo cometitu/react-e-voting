@@ -30,6 +30,20 @@ export default function Welcome() {
     }
   } */
 
+  const assignARandomRepository = () => {
+    const totalParticipants = 200;
+    const participantsIndex = Math.floor(Math.random() * totalParticipants);
+      if (participantsIndex < totalParticipants / 2) {
+        window.location.href =
+        "https://app6.res50.itu.dk/";
+      }
+      else{
+        window.location.href =
+        "https://app1.res50.itu.dk/";
+      }
+};
+
+
   return (
     <div className="container-info-pages">
       <Box className="inner-box-info padding-top-info-page" maxW={"35rem"}>
@@ -137,13 +151,13 @@ export default function Welcome() {
           </ListItem>
           <ListItem>Jurlind Budurush, IT University of Copenhagen (jurb@itu.dk)</ListItem>
           <ListItem>Asmita Dalela (asmita.dalela@gmail.com)</ListItem>
+          <ListItem>Christina Nissen, IT University of Copenhagen (chfn.itu.dk)</ListItem>
         </UnorderedList>
         <br />
          <br />
         <Text>By pressing the <strong>"Next"</strong> button, you freely and knowingly accept that you have read and understood the provided information.</Text>
         <Button
-          onClick={() =>
-            (window.location.href = "http://app6.res50.itu.dk/info-1")
+          onClick={() => assignARandomRepository()
           }
           className="red-btn"
        /*    disabled={disabledButton} */
